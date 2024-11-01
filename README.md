@@ -1,66 +1,20 @@
-| Supported Targets | ESP32 | ESP32-C2 | ESP32-C3 | ESP32-C6 | ESP32-H2 | ESP32-P4 | ESP32-S2 | ESP32-S3 |
-| ----------------- | ----- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
+# Example นี้มีชื่อว่า LEDC_FADE
+ซึ่งexample นี้เป็นการทำให้ แสงLEDในบอร์ดesp32 ค่อยๆสว่างและดับ
+# ขั้นตอนที่1
+### กดที่ show example 
+# <img width="415" alt="ภาพถ่ายหน้าจอ 2567-11-01 เวลา 20 09 20" src="https://github.com/user-attachments/assets/df2738c9-08bc-4d63-b052-bc87f1075748">
 
-# _LEDC Fade Example_
+## ขั้นตอนที่2 
+- ค้นหาหรือเลื่อนหาคำว่า Ledc_fade และกดคำว่าLedc_fadeหลังจากนั้นให้กด create project using example Ledc_fade
+# <img width="1023" alt="ภาพถ่ายหน้าจอ 2567-11-01 เวลา 19 55 48" src="https://github.com/user-attachments/assets/1feb1b37-2fa8-4bdc-af57-9cad8d77986b">
+# ขั้นตอนที่3 
+-ต่อขาGPIO18 ไปที่ LED1 ,ต่อขาGPIO19 ไปที่ LED2,ต่อขาGPIO14 ไปที่ LED3,ต่อขาGPIO5 ไปที่ LED4ดังรูป
+#  <img width="723" alt="ภาพถ่ายหน้าจอ 2567-11-01 เวลา 20 20 40" src="https://github.com/user-attachments/assets/6560488d-b720-456e-b61f-986adc85975d">
+# ขั้นตอนที่4 build
+- หลังจากทำขั้นตอนที่3เสร็จเรียบร้อยแล้วให้ทำการ build  
+#  <img width="1008" alt="ภาพถ่ายหน้าจอ 2567-11-01 เวลา 20 03 02" src="https://github.com/user-attachments/assets/7a004adb-9ac4-40ad-ac02-fedefe76df12">
+- หลังจากทำการbuildในขั้นตอนที่4เสร็จ จะได้ผลลัพธ์คือ LEDค่อยๆสว่างและค่อยๆดับ
 
-(See the README.md file in the upper level 'examples' directory for more information about examples.)
-
-This example shows how to control intensity of LEDs using selected SoC's on-board hardware LED PWM Controller module.
-
-## How to use example
-
-### Hardware Required
-
-* A development board with any Espressif SoC (e.g., ESP32-DevKitC, ESP-WROVER-KIT, etc.)
-* A USB cable for power supply and programming
-
-Connect four LEDs to the following LEDC channels / individual GPIOs:
-
-|                 | Channel 0 | Channel 1 | Channel 2 | Channel 3 |
-| --------------- | --------- | --------- | --------- | --------- |
-|     ESP32       | GPIO18    | GPIO19    | GPIO4     | GPIO5     |
-| All other chips | GPIO8     | GPIO9     | GPIO4     | GPIO5     |
-
-### Configure the project
-
-```
-idf.py menuconfig
-```
-
-### Build and Flash
-
-Build the project and flash it to the board, then run the monitor tool to view the serial output:
-
-Run `idf.py -p PORT flash monitor` to build, flash and monitor the project.
-
-(To exit the serial monitor, type ``Ctrl-]``.)
-
-See the [Getting Started Guide](https://docs.espressif.com/projects/esp-idf/en/latest/get-started/index.html) for full steps to configure and use ESP-IDF to build projects.
-
-## Example Output
-
-Running this example, you will see the four LEDs' brightness change repeatedly in the following orders
-
-* 1: Fade up / increase intensity on the LEDs connecting to Channel 0/1; Fade down / decrease intensity on the LEDs connecting to Channel 2/3
-* 2: Fade down / decrease intensity on the LEDs connecting to Channel 0/1;Fade up / increase intensity on the LEDs connecting to Channel 2/3
-* 3: All LEDs keep a stable intensity
-* 4: All LEDs are off
-
-you can also see the following output log on the serial monitor:
-
-```
-1. LEDC fade up to duty = 4000
-2. LEDC fade down to duty = 0
-3. LEDC set duty = 4000 without fade
-4. LEDC set duty = 0 without fade
-...
-```
-
-## Troubleshooting
-
-* Programming fail
-
-    * Hardware connection is not correct: run `idf.py -p PORT monitor`, and reboot your board to see if there are any output logs.
-    * The baud rate for downloading is too high: lower your baud rate in the `menuconfig` menu, and try again.
-
-For any technical queries, please open an [issue](https://github.com/espressif/esp-idf/issues) on GitHub. We will get back to you soon.
+# ปรับปรุงแก้ไข้ในการใช้งานได้ดังนี้
+- ในส่วนที่ 2 ตรงบรรทัดที่63 ดังรูปจะเป็นการปรับค่าความสว่างและดับของLED ให้เร็วขึ้นหรือช้าลง
+# ![รูปภาพ (5)-1](https://github.com/user-attachments/assets/a03207f6-f80c-4523-9a50-594098f66899)
